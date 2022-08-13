@@ -24,7 +24,9 @@ class UpdateCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|min:3|unique:tbl_categories,title,'.$this->category->id
+            'title' => 'required|min:3|unique:tbl_categories,title,'.$this->category->id,
+            'order'=> 'required|integer',
+
         ];
     }
 }

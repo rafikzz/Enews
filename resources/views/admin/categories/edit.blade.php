@@ -25,6 +25,16 @@
                             </span>
                         @enderror
                     </div>
+                    <div class="form-group">
+                        <label class="label" for="order">Category Order</label>
+                            <input type="number" step="1" min="0" name="order" value="{{ old('order') ?: $category->order }}"
+                                class="form-control  @error('order') is-invalid @enderror"  required>
+                        @error('order')
+                            <span class="text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
                     <div class="col-md-12 text-center">
                         <button type="submit" class="btn btn-primary  mt-3">Edit</button>
                     </div>

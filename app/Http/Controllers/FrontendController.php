@@ -19,7 +19,7 @@ class FrontendController extends Controller
         $menu = new Menu;
         $menuList = $menu->tree();
         $newsList =Page::where('status', '=', 1)->orderBy('order')->get();
-        $galleries =Gallery::where('status', '=', 1)->orderBy('order')->take(4)->get();
+        $galleries =Gallery::where('status', '=', 1)->withCount('subgalleries')->orderBy('order')->take(4)->get();
         $setting= Setting::first();
         $banner=Banner::where('status',1)->first();
 

@@ -93,6 +93,8 @@ class BannerController extends Controller
     public function update(UpdateBannerRequest $request, Banner $banner)
     {
         $banner->title = $request->title;
+        $banner->order = $request->order;
+
         if($image = $request->file('image')) {
             $path = 'images/banners/';
             $this->deleteImage($banner->image);

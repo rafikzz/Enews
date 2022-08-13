@@ -29,7 +29,7 @@
 @endhasRole
 <li class="nav-item">
     <a href="{{ route('admin.banners.index') }} " class="nav-link {{ Request::is('admin/banners*') ? 'active' : '' }}">
-        <i class="nav-icon fas fa-tachometer-alt "></i>
+        <i class="nav-icon fas fa-flag "></i>
         <p>
             Banner Management
         </p>
@@ -60,7 +60,7 @@
     </a>
 </li>
 <li class="nav-item">
-    <a href="{{ route('admin.pages.index') }} " class="nav-link {{ Request::is('admin/pages') ? 'active' : '' }}">
+    <a href="{{ route('admin.pages.index') }} " class="nav-link {{ Request::is('admin/pages*') ? 'active' : '' }}">
         <i class="nav-icon fas fa-newspaper "></i>
         <p>
             Page Management
@@ -69,7 +69,7 @@
 </li>
 <li class="nav-item">
     <a href="{{ route('admin.abouts.create') }} " class="nav-link {{ Request::is('admin/abouts') ? 'active' : '' }}">
-        <i class="nav-icon fas fa-cogs "></i>
+        <i class="nav-icon fa fa-book-open "></i>
         <p>
             About Management
         </p>

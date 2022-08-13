@@ -18,7 +18,7 @@ class CreateTblAboutsTable extends Migration
             $table->string('tagline');
             $table->longtext('brief');
             $table->longtext('content');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('altimage');
             $table->timestamps();
         });

@@ -43,7 +43,7 @@ Route::get('/about-us', [FrontendController::class, 'about_us']);
 Auth::routes();
 // Back End Routes
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', IsAdminMiddleware::class]], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'role:admin|superadmin']], function () {
     //Dashboard
     Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
     //About Us Routes
@@ -85,8 +85,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', Is
 });
 
 //change status routes
-Route::get('categories/changeStatus', [CategoryController::class, 'changeStatus'])->name('categories.changeStatus');
-Route::get('banners/changeStatus', [BannerController::class, 'changeStatus'])->name('banners.changeStatus');
-Route::get('galleries/changeStatus', [GalleryController::class, 'changeStatus'])->name('galleries.changeStatus');
-Route::get('menus/changeStatus', [MenuController::class, 'changeStatus'])->name('menus.changeStatus');
-Route::get('pages/changeStatus', [PageController::class, 'changeStatus'])->name('pages.changeStatus');
+Route::group(['middleware' => ['auth', 'role:admin|superadmin']],function(){
+    Route::get('categories/changeStatus', [CategoryController::class, 'changeStatus'])->name('categories.changeStatus');
+    Route::get('banners/changeStatus', [BannerController::class, 'changeStatus'])->name('banners.changeStatus');
+    Route::get('galleries/changeStatus', [GalleryController::class, 'changeStatus'])->name('galleries.changeStatus');
+    Route::get('menus/changeStatus', [MenuController::class, 'changeStatus'])->name('menus.changeStatus');
+    Route::get('pages/changeStatus', [PageController::class, 'changeStatus'])->name('pages.changeStatus');
+});
+

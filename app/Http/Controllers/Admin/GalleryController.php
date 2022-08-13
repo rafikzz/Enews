@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreGalleryRequest;
 use App\Http\Requests\Admin\UpdateGalleryRequest;
 use App\Models\Gallery;
+use App\Models\SubGallery;
 use Illuminate\Http\Request;
 
 class GalleryController extends Controller
@@ -66,8 +67,9 @@ class GalleryController extends Controller
      */
     public function show($id)
     {
-        $gallery= Gallery::with('subgalleries')->findOrFail($id);
-        return view('admin.galleries.show',compact('gallery'));
+        $gallery= Gallery::findOrFail($id);
+        $subgalleries = SubGallery::where('gallery_id',$gallery->id)->paginate(8);
+        return view('admin.galleries.show',compact('gallery','subgalleries'));
 
     }
 

@@ -27,6 +27,17 @@
                     </div>
 
                     <div class="form-group">
+                        <label class="label" for="order">Menu Order</label>
+                            <input type="number" step="1" min="0" name="order" value="{{ old('order') ?: $menu->order }}"
+                                class="form-control  @error('order') is-invalid @enderror"  required>
+                        @error('order')
+                            <span class="text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
                         <label class="label" for="link">Menu Link</label>
                         <input type="text" name="link" value="{{ old('link') ?:$menu->link  }}"
                             class="form-control  @error('link') is-invalid @enderror" placeholder="Enter Link" required>

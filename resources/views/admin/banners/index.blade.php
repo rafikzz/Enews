@@ -15,6 +15,7 @@
                 <thead>
                     <th>Id</th>
                     <th>Title</th>
+                    <th>Order</th>
                     <th>Image</th>
                     <th>Status</th>
                     <th>Created At</th>
@@ -25,6 +26,7 @@
                         <tr class="row1" data-id="{{ $banner->id }}">
                             <td>{{ $banner->id }}</td>
                             <td>{{ $banner->title }}</td>
+                            <td>{{ $banner->order }}</td>
                             <td><img src="{{ $banner->image() }}" width="100" height="100"> </td>
                             <td>
                                 <button
@@ -163,13 +165,4 @@
             });
         });
     </script>
-    @if ($message = Session::get('success'))
-        <input type="hidden" id="successMessage" value="{{ $message }}">
-        <script>
-            $(document).ready(function() {
-                var message = document.getElementById('successMessage').value;
-                Swal.fire(message, 'success', 'success');
-            });
-        </script>
-    @endif
 @endsection

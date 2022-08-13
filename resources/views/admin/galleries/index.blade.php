@@ -15,6 +15,7 @@
                 <thead>
                     <th>Id</th>
                     <th>Title</th>
+                    <th>Order</th>
                     <th>Image</th>
                     <th>Photos</th>
                     <th>Status</th>
@@ -26,6 +27,7 @@
                         <tr class="row1" data-id="{{ $gallery->id }}">
                             <td>{{ $gallery->id }}</td>
                             <td>{{ $gallery->title }}</td>
+                            <td>{{ $gallery->order }}</td>
                             <td><img src="{{ $gallery->image() }}" width="100" height="100"> </td>
                             <td>{{ $gallery->subgalleries_count }}</td>
                             <td>
@@ -166,13 +168,4 @@
             });
         });
     </script>
-    @if ($message = Session::get('success'))
-        <input type="hidden" id="successMessage" value="{{ $message }}">
-        <script>
-            $(document).ready(function() {
-                var message = document.getElementById('successMessage').value;
-                Swal.fire(message, 'success', 'success');
-            });
-        </script>
-    @endif
 @endsection

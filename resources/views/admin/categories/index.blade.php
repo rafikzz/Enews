@@ -15,6 +15,7 @@
                 <thead>
                     <th>Id</th>
                     <th>Title</th>
+                    <th>Order</th>
                     <th>Status</th>
                     <th>Created At</th>
                     <th width="280px">Action</th>
@@ -24,6 +25,7 @@
                         <tr class="row1" data-id="{{ $category->id }}">
                             <td>{{ $category->id }}</td>
                             <td>{{ $category->title }}</td>
+                            <td>{{ $category->order }}</td>
                             <td>
                                 <button
                                     class="changeStatus btn btn-sm {{ $category->status ? 'btn-success' : 'btn-danger' }}"

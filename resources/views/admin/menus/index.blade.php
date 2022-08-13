@@ -15,6 +15,7 @@
                 <thead>
                     <th>Id</th>
                     <th>Title</th>
+                    <th>Order</th>
                     <th>Parent</th>
                     <th>Status</th>
                     <th>Created At</th>
@@ -25,6 +26,7 @@
                         <tr class="row1" data-id="{{ $menu->id }}">
                             <td>{{ $menu->id }}</td>
                             <td>{{ $menu->title }}</td>
+                            <td>{{ $menu->order }}</td>
                             <td>{{ isset($menu->parent)?$menu->parent->title :'No Parent' }}</td>
 
                             <td>

@@ -14,29 +14,32 @@
         </div>
         <div class="card-body row">
 
-            @foreach ($gallery->subgalleries as $subgallery)
-
+            @foreach ($subgalleries as $subgallery)
                 <div class="col-3 pt-3 pb-3">
                     <div class="card pt-n1">
-                        <img src="{{ $subgallery->image() }}"
-                        alt="Image not loaded " class="w-200" height="250">
+                        <img src="{{ $subgallery->image() }}" alt="Image not loaded " class="w-200" height="250">
                         <div class="card-body">
-                          <div class="row">
-                              <div class="col p-3 pl-3">
-                                <form action="{{ route('admin.subgalleries.destroy', $subgallery->id) }}"
-                                    method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger btn-delete"><i
-                                            class="fa fa-trash-alt"></i></button>
-                                </form>
-                              </div>
-                          </div>
+                            <div class="row">
+                                <div class="col p-3 pl-3">
+                                    <form action="{{ route('admin.subgalleries.destroy', $subgallery->id) }}"
+                                        method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger btn-delete"><i
+                                                class="fa fa-trash-alt"></i></button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             @endforeach
+
         </div>
+        <div class="col text-center">
+            {{  $subgalleries->links()}}
+        </div>
+
 
     </div>
 @endsection

@@ -15,6 +15,7 @@
                 <thead>
                     <th>Id</th>
                     <th>Title</th>
+                    <th>Order</th>
                     <th>Category</th>
                     <th>Image</th>
                     <th>Status</th>
@@ -26,6 +27,7 @@
                         <tr class="row1" data-id="{{ $page->id }}">
                             <td>{{ $page->id }}</td>
                             <td>{{ $page->title }}</td>
+                            <td>{{ $page->order }}</td>
                             <td>{{ $page->category->title }}</td>
                             <td><img src="{{ $page->image() }}" width="100" height="100"> </td>
                             <td>

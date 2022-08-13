@@ -13,7 +13,7 @@
             <i class="fa fa-caret-down"></i>
         </a>
     @else
-    <li class="nav-item {{ Request::path() === ltrim($menu->link, '/') ? 'active': ' ' }}">
+    <li class="nav-item {{ Request::path() === ltrim($menu->link, '/') ? 'active' : ' ' }}">
         <a class="nav-link" href="{{ $menu->link }}" role="button">
            {{$menu->title}}
         </a>

@@ -25,7 +25,7 @@
                     <div class="iq-blog ">
                         <div class="row">
                             @foreach ($categories as $category)
-                                <div class=" text-center col-3 mr-5 ">
+                                <div class=" text-center col-3 pr-2 py-2 ">
                                     <a class="iq-button d-inline-block"
                                         href="{{ url('/category/' . $category->slug) }}"><span>{{ $category->title }}({{ $category->active_news_count }})</span></a>
                                 </div>

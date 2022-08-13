@@ -27,6 +27,8 @@ class UpdateMenuRequest extends FormRequest
             'title'=>'required|min:3|unique:tbl_menus,title,'.$this->menu->id,
             'parent_id'=>'nullable|exists:tbl_menus,id',
             'link'=>'required',
+            'order'=> 'required|integer',
+
         ];
     }
 }

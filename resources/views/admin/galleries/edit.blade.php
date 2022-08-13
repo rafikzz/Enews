@@ -25,6 +25,16 @@
                             </span>
                         @enderror
                     </div>
+                    <div class="form-group">
+                        <label class="label" for="order">Gallery Order</label>
+                            <input type="number" step="1" min="0" name="order" value="{{ old('order') ?: $gallery->order }}"
+                                class="form-control  @error('order') is-invalid @enderror"  required>
+                        @error('order')
+                            <span class="text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
                     <div class="form-group  d-flex">
                         <div class="col-md-6">
                             <label for="exampleInputFile">Upload Image</label>

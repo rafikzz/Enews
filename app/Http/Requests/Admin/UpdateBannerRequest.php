@@ -26,6 +26,7 @@ class UpdateBannerRequest extends FormRequest
         return [
             'title'=>'required|min:3|unique:tbl_banners,title,'.$this->banner->id,
             'image'=>'mimes:jpg,jpeg,png,bmp,tiff|image|max:4096|nullable',
+            'order'=> 'required|integer',
 
         ];
     }

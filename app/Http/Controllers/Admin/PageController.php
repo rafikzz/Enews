@@ -23,7 +23,7 @@ class PageController extends Controller
     public function index()
     {
         //
-        $pages = Page::with('category')->orderBy('order','asc')->orderBy('created_at','desc')->get();
+        $pages = Page::with('category:id,title')->orderBy('order','asc')->orderBy('created_at','desc')->get();
 
         return view('admin.pages.index',compact('pages'));
     }
@@ -102,6 +102,7 @@ class PageController extends Controller
     {
         $page->title = $request->title;
         $page->category_id = $request->category_id;
+        $page->order = $request->order;
         $page->slug =Str::slug($request->title);
         $page->brief = $request->brief;
         $page->content = $request->content;

@@ -16,11 +16,21 @@
                 @csrf
                 @method('PUT')
                 <div class="row">
-                    <div class="form-group">
+                    <div class="form-group" col-6>
                         <label class="label" for="title">Page Title</label>
                             <input type="text" name="title" value="{{ old('title') ?: $page->title }}"
                                 class="form-control  @error('title') is-invalid @enderror" minlength="3" required>
                         @error('title')
+                            <span class="text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="form-group" col-6>
+                        <label class="label" for="order">Page Order</label>
+                            <input type="number" step="1" min="0" name="order" value="{{ old('order') ?: $page->order }}"
+                                class="form-control  @error('order') is-invalid @enderror"  required>
+                        @error('order')
                             <span class="text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

@@ -29,6 +29,8 @@ class UpdatePageRequest extends FormRequest
             'category_id'=>'required|exists:tbl_categories,id',
             'brief'=>'required',
             'content'=>'required',
+            'order'=> 'required|integer',
+
         ];
     }
 }

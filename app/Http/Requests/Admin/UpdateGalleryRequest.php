@@ -26,6 +26,8 @@ class UpdateGalleryRequest extends FormRequest
         return [
             'title'=>'required|min:3|unique:tbl_galleries,title,'.$this->gallery->id,
             'image'=>'mimes:jpg,jpeg,png,bmp,tiff|nullable|image|max:4096',
+            'order'=> 'required|integer',
+
         ];
     }
 }
